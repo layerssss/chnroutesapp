@@ -1,0 +1,63 @@
+!!!
+%html
+  %head
+    %title chnroutes app (让 VPN 聪明一些)
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/bootswatch/3.0.3/readable/bootstrap.min.css'}
+  %body
+    %div{style: 'margin: 2% 5%;'}
+      .panel.panel-default
+        .panel-heading
+          %h1.panel-title chnroutes app (让 VPN 聪明一些)
+        .panel-body
+          %p 
+            以下是
+            %a{href: 'https://github.com/GutenYe/chnroutes'} chnroutes
+            项目的 README 内容
+          %blockquote
+            %h1 chnroutes
+            %p
+              利用来自APNIC的数据生成路由命令脚本，让VPN客户端在连接时自动执行。通过这些路由脚本，可以让用户在使用VPN作为默认网关时，不使用VPN访问中国国内IP，从而减轻VPN负担，并提高访问国内网站的速度。
+
+            %h2 基本约定
+
+            %p 在使用这些脚本之前，请确保你在自己的电脑上已经成功配置好一个VPN（PPTP或OpenVPN），并且让之以默认网关的方式运行（通常是默认配置），即VPN连接之后所有网络流量都通过VPN。
+
+            %h2 注意事项
+
+            %p 因为这些IP数据不是固定不变的，建议每隔一个月更新一次；
+            %p 使用此法之后，可能导致Google Music等服务无法访问，因为连上VPN之后，使用的DNS也是国外的，因此google.cn解析出的是国外的IP。
+          %p 在这里，你可以直接获取到最新的脚本（一小时更新一次），而不需要将 chnroutes 下载到本地来运行。
+      .panel.panel-default
+        .panel-body
+          %form
+            .form-group
+              %label{for: "template"}
+                首先，输入你要生成的脚本的模板: (erb格式)
+              %textarea#template.form-control{name: 'template', rows: 15}=params[:template]
+            .form-group
+              %label{for: "choose"}
+                或者选择一个内置的模板:
+              #choose
+                %ul
+                  - @templates.each do |template|
+                    %li
+                      %a{href: "#{template[:permalink]}#results"}
+                        = template[:title]
+                  %li
+                    %a{href: 'https://github.com/layerssss/chnroutesapp/new/master/templates'}
+                      分享一个新的脚本模板...
+            .form-group
+              %button.btn.btn-primary.btn-block Generate
+      - if @permalink
+        .panel.panel-default#results
+          .panel-body
+            .form-group
+              %label{for: "result"}
+                输出结果:
+              %textarea#result.form-control{rows: 20}=@result
+            .form-group
+              %a{href: @permalink} 本模板永久链接
+            .form-group
+              %a{href: @permalink_raw} 本模板永久链接 (输出结果)
+                
+

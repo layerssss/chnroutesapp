@@ -1,0 +1,16 @@
+#!/bin/bash -
+# 1. `$ sudo python chnroutes.py -o /etc/openvpn`
+#
+# 2. 编辑 OpenVPN配置文件  
+# 
+#     script-security 2
+#     up vpn-up.sh
+#     down vpn-down.sh
+# 
+# 3. 重新连接VPN，观察日志测试。
+
+export PATH="/bin:/sbin:/usr/sbin:/usr/bin"
+ip -batch - <<EOF
+<% routes.each do |route| %>
+route del <%=route[:ip]%>/<%=route[:mask]%><% end %>
+EOF
