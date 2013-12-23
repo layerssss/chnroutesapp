@@ -46,6 +46,7 @@ def compile
         {
           ip: starting_ip,
           mask: mask,
+          cidr_mask: 32 - Math.log(num_ip, 2).to_i,
         }
       end
     end

@@ -6,7 +6,7 @@ acl chnroutes dst 10.0.0.0/8
 acl chnroutes dst 172.16.0.0/12
 acl chnroutes dst 192.168.0.0/16
 <% routes.each do |route| %>
-acl chnroutes dst "<%=route[:ip]%>/<%=route[:mask]%>"<% end %>
+acl chnroutes dst "<%=route[:ip]%>/<%=route[:cidr_mask]%>"<% end %>
 always_direct allow chnroutes
 always_direct deny all
 
