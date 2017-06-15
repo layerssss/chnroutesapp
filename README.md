@@ -3,6 +3,8 @@ chnroutesapp
 
 不用在本地运行chnroutes，直接在线获取chnroutes脚本，在这里，你可以直接获取到最新的脚本（一小时更新一次），而不需要将 chnroutes 下载到本地来运行。
 
+该程序运行在 Heroku 上，访问它本身时可能需要翻墙：[https://chnroutesapp.herokuapp.com/](https://chnroutsapp.herokuapp.com/)
+
 你也可以自定义你的模版以适用于不同的路由、VPN软件。
 
 ```
@@ -21,4 +23,3 @@ chnroutesapp
 
 ```
 
-[详情请见](https://chnroutsapp.herokuapp.com/)
