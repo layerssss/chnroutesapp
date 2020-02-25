@@ -1,5 +1,8 @@
-# A sample Gemfile
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "sinatra"
-gem "haml"
+# A sample Gemfile
+source 'https://rubygems.org'
+ruby '2.5.6'
+
+gem 'haml'
+gem 'sinatra'
